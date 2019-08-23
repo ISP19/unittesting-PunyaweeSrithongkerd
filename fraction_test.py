@@ -25,21 +25,46 @@ class FractionTest(unittest.TestCase):
         # Constructor should provide default denominator = 1
         f = Fraction(99)
         self.assertEqual("99", f.__str__())
+        # New test cases.
+        f = Fraction(0, 0)
+        self.assertEqual("UNDEFINED.", f.__str__())
+        f = Fraction(1, 0)
+        self.assertEqual("UNDEFINED.", f.__str__())
+        f = Fraction(0, 1)
+        self.assertEqual("0", f.__str__())
+        f = Fraction(0)
+        self.assertEqual("0", f.__str__())
+        f = Fraction(0, -1)
+        self.assertEqual("0", f.__str__())
 
     # TODO Write tests for __init__, __eq__, +, *.
     # Here is an example, but you must add more test cases.  
     # The test requires that your __eq__ is correct.
     def test_add(self):
         # 3/4 = 2/3 + 1/12
-        self.assertEqual(Fraction(3,4), Fraction(1,12)+Fraction(2,3))
+        self.assertEqual(Fraction(3, 4), Fraction(1, 12)+Fraction(2, 3))
+        # New test cases
+        # 1/2 = 1/4 + 2/8
+        self.assertEqual(Fraction(1, 2), Fraction(1, 4) + Fraction(2, 8))
+        # 3/4 = 9/12 + 0
+        self.assertEqual(Fraction(3, 4), Fraction(9, 12) + Fraction(0))
+        # 1 = 1/2 + 2/4
+        self.assertEqual(Fraction(1), Fraction(1, 2) + Fraction(2, 4))
+
+    def test_mul(self):
+        # 1/4 = 1/2 * 1/2
+        self.assertEqual(Fraction(1, 4), Fraction(1, 2) * Fraction(1, 2))
 
     def test_eq(self):
-        f = Fraction(1,2)
-        g = Fraction(-40,-80)
-        h = Fraction(10000,20001) # not quite 1/2
+        f = Fraction(1, 2)
+        g = Fraction(-40, -80)
+        h = Fraction(10000, 20001) # not quite 1/2
         self.assertTrue(f == g)
         self.assertTrue(f.__eq__(g))  # same thing
         self.assertFalse(f == h)
         self.assertFalse(f.__eq__(h))
-        #TODO write more tests using other cases.
-        # Consider special values like 0, 1/0, -1/0
+        i = Fraction(3, 0)
+        j = Fraction(0, 1)
+        k = Fraction(0)
+        self.assertTrue(j.__eq__(k))
+        self.assertFalse(i.__eq__(j))

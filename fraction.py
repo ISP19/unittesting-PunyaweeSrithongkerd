@@ -1,3 +1,6 @@
+from math import gcd, copysign
+
+
 class Fraction:
     """A fraction with a numerator and denominator and arithmetic operations.
 
@@ -12,25 +15,46 @@ class Fraction:
         """Initialize a new fraction with the given numerator
            and denominator (default 1).
         """
-        #TODO write this (and remove this TODO comment)
-        pass
+        common_div = gcd(numerator, denominator)
+        if common_div == 0:
+            common_div = 1
+        self.numerator = int((numerator / common_div) / copysign(1, denominator))
+        self.denominator = int((denominator / common_div) / copysign(1, denominator))
+        if self.denominator != 0:
+            self.equal = self.numerator / self.denominator
+        elif self.denominator == 0:
+            self.equal = "UNDEFINED."
 
-    #TODO Write the __add__ method, and remove this TODO comment.
     def __add__(self, frac):
         """Return the sum of two fractions as a new fraction.
            Use the standard formula  a/b + c/d = (ad+bc)/(b*d)
         """
-        pass
+        add_new_numerator = (self.numerator * frac.denominator) +\
+                            (frac.numerator * self.denominator)
+        add_new_denominator = self.denominator * frac.denominator
+        if add_new_denominator == 0:
+            return "UNDEFINED."
+        return Fraction(add_new_numerator, add_new_denominator)
 
-    #TODO write __mul__ and __str__.  Verify __eq__ works with your code.
-    #Optional have fun and overload other operators such as 
-    # __sub__ for f-g
-    # __gt__  for f > g
-    # __neg__ for -f (negation)
+    def __mul__(self, frac):
+        mul_new_numerator = self.numerator * frac.numerator
+        mul_new_denominator = self.denominator * frac.denominator
+        if mul_new_denominator == 0:
+            return "UNDEFINED."
+        return Fraction(mul_new_numerator, mul_new_denominator)
 
     def __eq__(self, frac):
         """Two fractions are equal if they have the same value.
            Fractions are stored in proper form so the internal representation
            is unique (3/6 is same as 1/2).
         """
-        return self.numerator == frac.numerator and self.denominator == frac.denominator
+        return self.equal == frac.equal
+
+    def __str__(self):
+        if self.denominator == 1:
+            return f'{self.numerator:.0f}'
+        elif self.denominator == 0:
+            return "UNDEFINED."
+        elif self.numerator == 0:
+            return '0'
+        return f'{self.numerator:.0f}/{self.denominator:.0f}'
