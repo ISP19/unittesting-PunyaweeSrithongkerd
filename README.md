@@ -1,11 +1,10 @@
-## Unit Testing Assignment
+# Unit Testing Assignment
 
-by Bill Gates.
+[![Build Status](https://travis-ci.com/your_acctid/demo-pyci.svg?branch=master)](https://travis-ci.com/PunyaweeSrithongkerd/unittesting-PunyaweeSrithongkerd)
 
+By Punyawee Srithongkerd
 
-## Test Cases for unique
-
-Write a table describing your test cases.
+## Test Cases for unique\
 
 | Test case              |  Expected Result    |
 |------------------------|---------------------|
@@ -15,5 +14,11 @@ Write a table describing your test cases.
 | 2 items, many times, many orders | 2 item list, items in same order  |
 | what other test case?  |  what result?       |
 
-
 ## Test Cases for Fraction
+
+| Test case              |  Expected Result    |
+|------------------------|---------------------|
+| String                 |  Fraction           |
+| add                    |  add fraction       |
+| mul                    |  multiply fraction  |
+| eq                     | Test equltion with other fraction  |
