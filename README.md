@@ -1,6 +1,6 @@
 # Unit Testing Assignment
 
-[![Build Status](https://travis-ci.com/PunyaweeSrithongkerd/unittesting-PunyaweeSrithongkerd).svg?branch=master)](https://travis-ci.com/PunyaweeSrithongkerd/unittesting-PunyaweeSrithongkerd)
+[![Build Status](https://travis-ci.com/PunyaweeSrithongkerd/unittesting-PunyaweeSrithongkerd.svg?branch=master)](https://travis-ci.com/PunyaweeSrithongkerd/unittesting-PunyaweeSrithongkerd)
 
 By Punyawee Srithongkerd
 
