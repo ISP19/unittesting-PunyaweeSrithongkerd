@@ -6,6 +6,13 @@ python: "3.6"
 git:
   depth: 1
 
+# Install the codecov pip dependency
+install:
+  - pip install codecov
+
 # script to run tests. Can also use make, e.g. "make test"
 script: 
   - python -m unittest discover -p "*_test.py"
+
+after_success:
+  - codecov

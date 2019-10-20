@@ -26,10 +26,11 @@ class FractionTest(unittest.TestCase):
         f = Fraction(99)
         self.assertEqual("99", f.__str__())
         # New test cases.
-        f = Fraction(0, 0)
-        self.assertEqual("UNDEFINED.", f.__str__())
-        f = Fraction(1, 0)
-        self.assertEqual("UNDEFINED.", f.__str__())
+        with self.assertRaises(ValueError):
+            f = Fraction(0, 0)
+            print(f)
+            f = Fraction(1, 0)
+            print(f)
         f = Fraction(0, 1)
         self.assertEqual("0", f.__str__())
         f = Fraction(0)
@@ -37,9 +38,6 @@ class FractionTest(unittest.TestCase):
         f = Fraction(0, -1)
         self.assertEqual("0", f.__str__())
 
-    # TODO Write tests for __init__, __eq__, +, *.
-    # Here is an example, but you must add more test cases.  
-    # The test requires that your __eq__ is correct.
     def test_add(self):
         # 3/4 = 2/3 + 1/12
         self.assertEqual(Fraction(3, 4), Fraction(1, 12)+Fraction(2, 3))
@@ -50,6 +48,10 @@ class FractionTest(unittest.TestCase):
         self.assertEqual(Fraction(3, 4), Fraction(9, 12) + Fraction(0))
         # 1 = 1/2 + 2/4
         self.assertEqual(Fraction(1), Fraction(1, 2) + Fraction(2, 4))
+        with self.assertRaises(ValueError):
+            Fraction(1, 0)+Fraction(2, 3)
+            Fraction(1, 12)+Fraction(2, 0)
+            Fraction(0, 0)+Fraction(2, 0)
 
     def test_mul(self):
         # 1/4 = 1/2 * 1/2
@@ -68,3 +70,7 @@ class FractionTest(unittest.TestCase):
         k = Fraction(0)
         self.assertTrue(j.__eq__(k))
         self.assertFalse(i.__eq__(j))
+
+
+if __name__ == '__main__':
+     unittest.main(verbosity=2)

@@ -33,14 +33,14 @@ class Fraction:
                             (frac.numerator * self.denominator)
         add_new_denominator = self.denominator * frac.denominator
         if add_new_denominator == 0:
-            return "UNDEFINED."
+            raise ValueError("UNDEFINED.")
         return Fraction(add_new_numerator, add_new_denominator)
 
     def __mul__(self, frac):
         mul_new_numerator = self.numerator * frac.numerator
         mul_new_denominator = self.denominator * frac.denominator
         if mul_new_denominator == 0:
-            return "UNDEFINED."
+            raise ValueError("UNDEFINED.")
         return Fraction(mul_new_numerator, mul_new_denominator)
 
     def __eq__(self, frac):
@@ -54,7 +54,7 @@ class Fraction:
         if self.denominator == 1:
             return f'{self.numerator:.0f}'
         elif self.denominator == 0:
-            return "UNDEFINED."
+            raise ValueError("UNDEFINED.")
         elif self.numerator == 0:
             return '0'
         return f'{self.numerator:.0f}/{self.denominator:.0f}'
