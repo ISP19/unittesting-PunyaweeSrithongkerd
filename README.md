@@ -1,7 +1,7 @@
 # Unit Testing Assignment
 
-[![Build Status](https://codecov.io/gh/codecov/example-python/branch/master/graph/badge.svg)](https://travis-ci.com/PunyaweeSrithongkerd/unittesting-PunyaweeSrithongkerd)
-[![Build Status](https://travis-ci.com/your_acctid/demo-pyci.svg?branch=master)](https://codecov.io/gh/PunyaweeSrithongkerd/unittesting-PunyaweeSrithongkerd)
+[![Build Status](https://codecov.io/gh/codecov/example-python/branch/master/graph/badge.svg)](https://codecov.io/gh/PunyaweeSrithongkerd/unittesting-PunyaweeSrithongkerd)
+[![Build Status](https://travis-ci.com/your_acctid/demo-pyci.svg?branch=master)](https://travis-ci.com/PunyaweeSrithongkerd/unittesting-PunyaweeSrithongkerd)
 
 By Punyawee Srithongkerd
 
